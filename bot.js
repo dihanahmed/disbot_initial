@@ -24,6 +24,15 @@ client.on('message', async(message)=>{
         .substring(PREFIX.length)
         .split(/\s+/)
 
+        // Send a remote file
+        if(CMD_NAME==='isaak'){
+            channel.send({
+                files: ['https://deadspace.fandom.com/wiki/Isaac_Clarke']
+              })
+                .then(console.log)
+                .catch(console.error);
+
+            }    
         if(CMD_NAME==='depressed'){
             message.channel.send(" hang in there")
         }
@@ -73,4 +82,4 @@ client.on('message', async(message)=>{
     
 })
 
-client.login("ODY5NjA1MDcxMDgyNjQzNTE2.YQAo1Q.0caZRaUXdjp9Ahtx9n0cF6_4VpA");
+client.login("ODY5NjA1MDcxMDgyNjQzNTE2.YQAo1Q.pWyYH0u-iVxhzJ873nVIbwfZeeU");
