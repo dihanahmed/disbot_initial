@@ -15,27 +15,46 @@ client.on('ready', ()=>{
 // BOT ACTIVITIES( MESSAGE REPLY)
 client.on('message', async(message)=>{
 
-    if(message.author.bot) return;//if bot return same message then 
+//if bot return same message then 
+    if(message.author.bot) return;
     console.log(`[${message.author.tag}]: ${message.content}`)
 
-    if(message.content.startsWith(PREFIX)){
+//to check the prefx
+    if(message.content.startsWith(PREFIX)){ 
         const [CMD_NAME,...args] =message.content
         .trim()
         .substring(PREFIX.length)
         .split(/\s+/)
 
-        // Send a remote file
+// normal check for a command
+        if(CMD_NAME==='depressed'){
+            message.channel.send(" hang in there")
+        }
+
+//  bot sending back a remote file to server 
         if(CMD_NAME==='isaak'){
-            channel.send({
+            message.channel.send({
                 files: ['https://deadspace.fandom.com/wiki/Isaac_Clarke']
               })
                 .then(console.log)
                 .catch(console.error);
 
             }    
-        if(CMD_NAME==='depressed'){
-            message.channel.send(" hang in there")
+
+// bot sending back a local file to server  
+        if(CMD_NAME==='sadman'){
+            message.channel.send({
+                files: [{
+                  attachment: 'E:/exercise_lab_online/sadman-donkey.jpg',
+                  name: 'sadman-donkey.jpg'
+                }]
+              })
+                .then(console.log)
+                .catch(console.error);
+
         }
+
+
         //KICKING USERS
         if( CMD_NAME==='kick'){
             if(!message.member.hasPermission('KICK_MEMBERS')){
@@ -82,4 +101,4 @@ client.on('message', async(message)=>{
     
 })
 
-client.login("ODY5NjA1MDcxMDgyNjQzNTE2.YQAo1Q.pWyYH0u-iVxhzJ873nVIbwfZeeU");
+client.login("ODY5NjA1MDcxMDgyNjQzNTE2.YQAo1Q.JXHoA0sOxSJT8uHoj_iY4JyTGP8");
